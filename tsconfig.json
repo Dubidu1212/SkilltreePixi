@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        
+    },
+    "files": [
+        "js/graph.ts",
+        "js/main.ts",
+        "js/nodeObj.ts"
+    ]
+
+}
