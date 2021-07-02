@@ -1,6 +1,9 @@
 {
     "compilerOptions": {
-        
+        "lib": [
+            "es2015",
+            "dom"
+        ]
     },
     "files": [
         "js/graph.ts",

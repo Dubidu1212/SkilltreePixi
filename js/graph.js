@@ -1,16 +1,27 @@
 "use strict";
 exports.__esModule = true;
 exports.graph = void 0;
+var nodeObj_1 = require("./nodeObj");
 var graph = /** @class */ (function () {
     function graph() {
-        //adjaciency list: contains for each node all connected nodes. 
-        //If the sign is positive means the current node points to this node if its negative the other node points to me
-        this.adjList = [];
         this.currNodeNum = 1;
-        //maps the integer of the node to the actual node object
-        this.objectMapping = {};
     }
-    graph.prototype.addNode = function (name) {
+    graph.prototype.addNode = function () {
+        var tempNode = new nodeObj_1.nodeObj;
+        tempNode.id = this.currNodeNum++;
+        //add empty array
+        this.adjList[tempNode.id] = [];
+        //add node to nodeMapping
+        this.nodeMapping[tempNode.id] = tempNode;
+        return tempNode;
+    };
+    graph.prototype.removeNode = function (index) {
+        var _this = this;
+        this.adjList[index].forEach(function (id) {
+            _this.adjList[id].remove(index);
+        });
+        //remove node at index from the list
+        this.adjList[index] = null;
     };
     return graph;
 }());
